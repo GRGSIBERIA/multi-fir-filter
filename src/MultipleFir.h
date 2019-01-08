@@ -8,7 +8,7 @@
 
 namespace fir
 {
-	GLFWwindow* GLInit();
+	GLFWwindow* GLInit(int, int, const char*);
 }
 
 #endif // !MULTIPLE_FIR_H

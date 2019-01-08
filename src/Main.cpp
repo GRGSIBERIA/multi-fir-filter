@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[])
 {
-	GLFWwindow* window = fir::GLInit();
+	GLFWwindow* window = fir::GLInit(640, 480, "Multiple FIR");
 
 	glClearColor(1.f, 1.f, 1.f, 0.f);
 

@@ -2,7 +2,7 @@
 
 namespace fir
 {
-	GLFWwindow* GLInit()
+	GLFWwindow* GLInit(const int width, const int height, const char* title)
 	{
 		if (glfwInit() == GL_FALSE)
 		{
@@ -15,7 +15,7 @@ namespace fir
 		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-		GLFWwindow *window = glfwCreateWindow(640, 480, "MultipleFIR", NULL, NULL);
+		GLFWwindow *window = glfwCreateWindow(width, height, title, NULL, NULL);
 		if (window == nullptr)
 		{
 			std::cerr << "Can't create GLFW window." << std::endl;
