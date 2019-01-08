@@ -1,7 +1,5 @@
 #include "MultipleFir.h"
 
-#pragma comment(lib, "opengl32.lib")
-
 int main(int argc, char* argv[])
 {
 	GLFWwindow* window = fir::GLInit(640, 480, "Multiple FIR");
