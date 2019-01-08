@@ -1,17 +1,12 @@
 #include "Sprite.h"
 #include <fstream>
 #include <GL/gl.h>
-#include <boost/gil/gil_all.hpp>
-#include <boost/gil/extension/io/jpeg.hpp>
-
-using namespace boost::gil;
 
 void fir::Sprite::Init()
 {
 	glGenTextures(1, &id);
 
 	std::ifstream stream(filePath, std::ios::binary);
-	assert(stream);
 
 	const size_t fileSize = static_cast<size_t>(stream.seekg(0, stream.end).tellg());
 	stream.seekg(0, stream.beg);
