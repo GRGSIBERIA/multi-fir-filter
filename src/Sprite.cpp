@@ -9,10 +9,13 @@ void fir::Sprite::Init()
 	std::ifstream stream(filePath, std::ios::binary);
 
 	const size_t fileSize = static_cast<size_t>(stream.seekg(0, stream.end).tellg());
+	const size_t dataSize = fileSize - 8;
 	stream.seekg(0, stream.beg);
 
-	buffer = new GLubyte[fileSize];
-	stream.read((char*)&buffer[0], fileSize);
+	stream.read((char*)width, 4);
+	stream.read((char*)height, 4);
+	stream.read((char*)buffer, dataSize);
+	stream.close();
 
 	// ƒeƒNƒXƒ`ƒƒ‚ð“o˜^
 	glBindTexture(GL_TEXTURE_2D, id);
