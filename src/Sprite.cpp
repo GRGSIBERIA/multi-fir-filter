@@ -8,9 +8,11 @@ void fir::Sprite::Init()
 
 	std::ifstream stream(filePath, std::ios::binary);
 
+	// —Ìˆæ‚Ìİ’è
 	const size_t fileSize = static_cast<size_t>(stream.seekg(0, stream.end).tellg());
 	const size_t dataSize = fileSize - 8;
 	stream.seekg(0, stream.beg);
+	buffer = new GLubyte[dataSize];		// ‰ğ•ú‚Í–Y‚ê‚È‚¢‚Å
 
 	stream.read((char*)width, 4);
 	stream.read((char*)height, 4);
@@ -69,13 +71,69 @@ void fir::Sprite::Move(GLfloat tx, GLfloat ty)
 	y += ty;
 }
 
-fir::Sprite::Sprite(const char * path, GLfloat initX, GLfloat initY)
-	: filePath(path), x(initX), y(initY)
+bool fir::Sprite::IsMouseOver(GLFWwindow* window) const
+{
+	double cx, cy;
+	glfwGetCursorPos(window, &cx, &cy);
+	
+	switch (collision)
+	{
+	case CollisionType::Rect:	// ‹éŒ`‚Ì“–‚½‚è”»’è
+		return
+			(x < cx && cx < x + width) &&
+			(y < cy && cy < y + height) ? true : false;
+
+	case CollisionType::Circle:	// ‰~‚Ì“–‚½‚è”»’è
+		const GLfloat a = x - (GLfloat)cx;
+		const GLfloat b = y - (GLfloat)cy;
+		const GLfloat ANS = a * a + b * b;
+		if (width < height)
+		{
+			return ANS <= width * width;
+		}
+		return ANS <= height * height;
+	}
+
+	return false;
+}
+
+bool fir::Sprite::LeftClick(GLFWwindow* window)
+{
+	return 
+		IsMouseOver(window) && 
+		glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS ? true : false;
+}
+
+bool fir::Sprite::RightClick(GLFWwindow * window)
+{
+	return
+		IsMouseOver(window) && 
+		glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS ? true : false;
+}
+
+bool fir::Sprite::LeftRelease(GLFWwindow * window)
+{
+	return
+		IsMouseOver(window) && 
+		glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE ? true : false;
+}
+
+bool fir::Sprite::RightRelease(GLFWwindow * window)
+{
+	return
+		IsMouseOver(window) && 
+		glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_RELEASE ? true : false;
+}
+
+
+
+fir::Sprite::Sprite(const char * path, GLfloat initX, GLfloat initY, CollisionType collision = fir::CollisionType::Rect)
+	: filePath(path), x(initX), y(initY), collision(collision)
 {
 	Init();
 }
 
-	fir::Sprite::~Sprite()
+fir::Sprite::~Sprite()
 {
 	delete[] buffer;
 }
