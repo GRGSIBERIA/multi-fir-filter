@@ -42,7 +42,7 @@ void fir::Sprite::DrawSprite()
 	glDisable(GL_TEXTURE_2D);
 }
 
-void fir::Sprite::Draw(const int x, const int y)
+void fir::Sprite::Draw()
 {
 	const GLfloat vtx[] = {
 		x, y,
@@ -63,13 +63,19 @@ void fir::Sprite::Draw(const int x, const int y)
 	DrawSprite();
 }
 
-fir::Sprite::Sprite(const char * path)
-	: filePath(path)
+void fir::Sprite::Move(GLfloat tx, GLfloat ty)
+{
+	x += tx;
+	y += ty;
+}
+
+fir::Sprite::Sprite(const char * path, GLfloat initX, GLfloat initY)
+	: filePath(path), x(initX), y(initY)
 {
 	Init();
 }
 
-fir::Sprite::~Sprite()
+	fir::Sprite::~Sprite()
 {
 	delete[] buffer;
 }
