@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenCL.Net;
+using MultiFIR.Library;
 
 namespace MultiFIR
 {
     public partial class MainForm : Form
     {
+        OpenCLProvider opencl;
+
         public MainForm()
         {
             InitializeComponent();
@@ -31,20 +34,30 @@ namespace MultiFIR
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            opencl = new OpenCLProvider();
+
             InitOpenCLComboBox();
+            InitASIOComboBox();
+            InitGPUComboBox();
+
             SetToolTips();
+        }
+
+        private void InitGPUComboBox()
+        {
+            
+        }
+
+        private void InitASIOComboBox()
+        {
+            
         }
 
         private void InitOpenCLComboBox()
         {
-            ErrorCode error;
-            Cl.GetPlatformIDs(out error);
-            var platforms = Cl.GetPlatformIDs(out error);
-
-            foreach (var platform in platforms)
+            foreach (var platform in opencl.PlatformInformations)
             {
-                var platformName = Cl.GetPlatformInfo(platform, PlatformInfo.Name, out error).ToString();
-                comboBoxOpenCLPlatform.Items.Add(platformName);
+                comboBoxOpenCLPlatform.Items.Add(platform.Name);
             }
         }
 
@@ -58,6 +71,16 @@ namespace MultiFIR
             toolTip1.ShowAlways = true;
 
             toolTip1.SetToolTip(comboBoxOpenCLPlatform, "OpenCLがインストールされたプラットフォーム情報を表示します");
+        }
+
+        private void SelectedOpenCLPlatform(object sender, EventArgs e)
+        {
+            var combo = sender as ComboBox;
+            var index = combo.SelectedIndex;
+            opencl.SelectedPlatformIndex = index;
+
+            // OpenCLプラットフォームが選択されたときの各種情報を入れる
+
         }
     }
 }
