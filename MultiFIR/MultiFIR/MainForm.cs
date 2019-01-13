@@ -99,6 +99,8 @@ namespace MultiFIR
             labelValidateSelectOpenCLPlatform.Text = "";
             comboBoxGPUDevice.Enabled = true;
             labelNextAnnotationGPUDevice.Text = "GPU情報タブで演算するGPUデバイスを選択してください";
+
+            opencl.IncludeDevices();
         }
     }
 }
