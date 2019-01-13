@@ -85,11 +85,15 @@
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.label22 = new System.Windows.Forms.Label();
+            this.comboBoxASIODriver = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageOpenCL.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageGPU.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabPageASIO.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -258,6 +262,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.textBoxCompilerAvailable);
@@ -572,6 +577,8 @@
             // 
             // tabPageASIO
             // 
+            this.tabPageASIO.Controls.Add(this.label23);
+            this.tabPageASIO.Controls.Add(this.comboBoxASIODriver);
             this.tabPageASIO.Location = new System.Drawing.Point(4, 22);
             this.tabPageASIO.Name = "tabPageASIO";
             this.tabPageASIO.Padding = new System.Windows.Forms.Padding(3);
@@ -622,6 +629,34 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(354, 202);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(225, 12);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "環境によって文字化け/非表示のことがあります";
+            // 
+            // comboBoxASIODriver
+            // 
+            this.comboBoxASIODriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxASIODriver.FormattingEnabled = true;
+            this.comboBoxASIODriver.Location = new System.Drawing.Point(83, 6);
+            this.comboBoxASIODriver.Name = "comboBoxASIODriver";
+            this.comboBoxASIODriver.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxASIODriver.TabIndex = 0;
+            this.comboBoxASIODriver.TextChanged += new System.EventHandler(this.SelectedASIODriver);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(71, 12);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "ASIO ドライバ";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -643,6 +678,8 @@
             this.tabPageGPU.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPageASIO.ResumeLayout(false);
+            this.tabPageASIO.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -708,6 +745,9 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBoxCompilerAvailable;
         private System.Windows.Forms.TextBox textBoxAvailable;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox comboBoxASIODriver;
     }
 }
 

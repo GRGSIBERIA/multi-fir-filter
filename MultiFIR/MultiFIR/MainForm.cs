@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenCL.Net;
 using MultiFIR.Library;
+using NAudio.Wave;
 
 namespace MultiFIR
 {
     public partial class MainForm : Form
     {
         OpenCLProvider opencl;
+        ASIOProvider asio;
 
         public MainForm()
         {
@@ -38,19 +40,16 @@ namespace MultiFIR
 
             InitOpenCLComboBox();
             InitASIOComboBox();
-            InitGPUComboBox();
 
             SetToolTips();
         }
 
-        private void InitGPUComboBox()
-        {
-            
-        }
-
         private void InitASIOComboBox()
         {
-            
+            foreach (var driverName in AsioOut.GetDriverNames())
+            {
+                comboBoxASIODriver.Items.Add(driverName);
+            }
         }
 
         private void InitOpenCLComboBox()
@@ -82,6 +81,11 @@ namespace MultiFIR
             target.ReadOnly = true;
         }
 
+        /// <summary>
+        /// OpenCLプラットフォームが選択されたときの動作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SelectedOpenCLPlatform(object sender, EventArgs e)
         {
             var combo = sender as ComboBox;
@@ -108,12 +112,18 @@ namespace MultiFIR
             
         }
 
+        /// <summary>
+        /// GPUデバイスが選択されたときの動作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SelectedGPUDevice(object sender, EventArgs e)
         {
             var combo = sender as ComboBox;
             var index = combo.SelectedIndex;
             opencl.SelectedDeviceIndex = index;
 
+            // テキストボックスに情報を入力
             var info = opencl.SelectedDeviceInformation;
             SetTextAndReadOnlyEnabled(textBoxDeviceName, info.Name);
             SetTextAndReadOnlyEnabled(textBoxDevicePlatform, info.Platform);
@@ -123,6 +133,24 @@ namespace MultiFIR
             SetTextAndReadOnlyEnabled(textBoxAvailable, info.Available);
             SetTextAndReadOnlyEnabled(textBoxCompilerAvailable, info.CompilerAvailable);
             SetTextAndReadOnlyEnabled(textBoxDriverVersion, info.DriverVersion);
+            SetTextAndReadOnlyEnabled(textBoxMaxFrequency, info.MaxClockFrequency);
+            SetTextAndReadOnlyEnabled(textBoxComputeUnit, info.MaxComputeUnits);
+            SetTextAndReadOnlyEnabled(textBoxLocalMemorySize, info.LocalMemorySize);
+            SetTextAndReadOnlyEnabled(textBoxGlobalMemorySize, info.GlobalMemorySize);
+            SetTextAndReadOnlyEnabled(textBoxAddressBits, info.AddressBits);
+            SetTextAndReadOnlyEnabled(textBoxMaxWorkItemSize, info.MaxWorkItemSize);
+            SetTextAndReadOnlyEnabled(textBoxMaxGroupSize, info.MaxWorkGroupSize);
+
+        }
+
+        /// <summary>
+        /// ASIOドライバが選択されたときの動作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectedASIODriver(object sender, EventArgs e)
+        {
+            asio = new ASIOProvider(comboBoxASIODriver.Text);
         }
     }
 }
