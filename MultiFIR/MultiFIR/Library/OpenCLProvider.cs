@@ -96,6 +96,14 @@ namespace MultiFIR.Library
         public NoSelectedOpenCLPlatformException(string message) : base(message) { }
     }
 
+    /// <summary>
+    /// GPUデバイスが未選択のときに送出する
+    /// </summary>
+    public class NoSelectedGPUDeviceException : System.Exception
+    {
+        public NoSelectedGPUDeviceException(string message) : base(message) { }
+    }
+
     public class OpenCLProvider
     {
         public Platform[] Platforms { get; private set; }
@@ -145,7 +153,23 @@ namespace MultiFIR.Library
         }
 
         public Device[] Devices { get; private set; }
+
         public DeviceInformation[] DeviceInformations { get; private set; }
+
+        public DeviceInformation SelectedDeviceInformation
+        {
+            get
+            {
+                try
+                {
+                    return DeviceInformations[SelectedDeviceIndex];
+                }
+                catch(IndexOutOfRangeException)
+                {
+                    throw new NoSelectedGPUDeviceException("GPUデバイスが未選択です");
+                }
+            }
+        }
 
         ErrorCode error;
 
