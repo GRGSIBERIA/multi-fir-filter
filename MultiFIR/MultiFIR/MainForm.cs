@@ -80,7 +80,20 @@ namespace MultiFIR
             opencl.SelectedPlatformIndex = index;
 
             // OpenCLプラットフォームが選択されたときの各種情報を入れる
+            var info = opencl.SelectedPlatformInformation;
+            textBoxPlatformName.Text = info.Name;
+            textBoxPlatformVendor.Text = info.Vendor;
+            textBoxPlatformVersion.Text = info.Version;
+            textBoxPlatformProfile.Text = info.Profile;
 
+            textBoxPlatformName.ReadOnly = true;
+            textBoxPlatformVendor.ReadOnly = true;
+            textBoxPlatformVersion.ReadOnly = true;
+            textBoxPlatformProfile.ReadOnly = true;
+            textBoxPlatformName.Enabled = true;
+            textBoxPlatformVendor.Enabled = true;
+            textBoxPlatformVersion.Enabled = true;
+            textBoxPlatformProfile.Enabled = true;
         }
     }
 }

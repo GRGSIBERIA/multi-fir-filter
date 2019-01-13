@@ -25,20 +25,36 @@ namespace MultiFIR.Library
         }
     }
 
+    public class NoSelectedOpenCLPlatformException : System.Exception
+    {
+        public NoSelectedOpenCLPlatformException(string message) : base(message) { }
+    }
+
     public class OpenCLProvider
     {
         public Platform[] Platforms { get; private set; }
         public PlatformInformation[] PlatformInformations { get; private set; }
+
+        /// <summary>
+        /// 選択されたプラットフォーム，未指定の場合は-1
+        /// </summary>
         public int SelectedPlatformIndex { get; set; }
 
         /// <summary>
-        /// 選択されているプラットフォームIDを返す
+        /// 選択されているプラットフォームを返す
         /// </summary>
         public PlatformInformation SelectedPlatformInformation
         {
             get
             {
-                return PlatformInformations[SelectedPlatformIndex];
+                try
+                {
+                    return PlatformInformations[SelectedPlatformIndex];
+                }
+                catch(IndexOutOfRangeException)
+                {
+                    throw new NoSelectedOpenCLPlatformException("OpenCLプラットフォームが未選択です");
+                }
             }
         }
 
