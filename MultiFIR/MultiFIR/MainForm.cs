@@ -63,14 +63,14 @@ namespace MultiFIR
 
         private void SetToolTips()
         {
-            toolTip1 = new ToolTip(this.components);
+            toolTip = new ToolTip(this.components);
 
-            toolTip1.InitialDelay = 2000;
-            toolTip1.ReshowDelay = 1000;
-            toolTip1.AutoPopDelay = 1000;
-            toolTip1.ShowAlways = true;
+            toolTip.InitialDelay = 2000;
+            toolTip.ReshowDelay = 1000;
+            toolTip.AutoPopDelay = 1000;
+            toolTip.ShowAlways = true;
 
-            toolTip1.SetToolTip(comboBoxOpenCLPlatform, "OpenCLがインストールされたプラットフォーム情報を表示します");
+            toolTip.SetToolTip(comboBoxOpenCLPlatform, "OpenCLがインストールされたプラットフォーム情報を表示します");
         }
 
         private void SelectedOpenCLPlatform(object sender, EventArgs e)
@@ -94,6 +94,11 @@ namespace MultiFIR
             textBoxPlatformVendor.Enabled = true;
             textBoxPlatformVersion.Enabled = true;
             textBoxPlatformProfile.Enabled = true;
+
+            // GPU情報を選択させる
+            labelValidateSelectOpenCLPlatform.Text = "";
+            comboBoxGPUDevice.Enabled = true;
+            labelNextAnnotationGPUDevice.Text = "GPU情報タブで演算するGPUデバイスを選択してください";
         }
     }
 }

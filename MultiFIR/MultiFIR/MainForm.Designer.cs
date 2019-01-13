@@ -49,10 +49,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.comboBoxGPUDevice = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelValidateSelectOpenCLPlatform = new System.Windows.Forms.Label();
+            this.labelNextAnnotationGPUDevice = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageOpenCL.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPageGPU.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +77,7 @@
             // 
             // tabPageOpenCL
             // 
+            this.tabPageOpenCL.Controls.Add(this.labelNextAnnotationGPUDevice);
             this.tabPageOpenCL.Controls.Add(this.label1);
             this.tabPageOpenCL.Controls.Add(this.groupBox1);
             this.tabPageOpenCL.Controls.Add(this.comboBoxOpenCLPlatform);
@@ -106,7 +113,7 @@
             this.groupBox1.Size = new System.Drawing.Size(754, 322);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "デバイス情報";
+            this.groupBox1.Text = "プラットフォーム情報";
             // 
             // label5
             // 
@@ -189,6 +196,10 @@
             // 
             // tabPageGPU
             // 
+            this.tabPageGPU.Controls.Add(this.labelValidateSelectOpenCLPlatform);
+            this.tabPageGPU.Controls.Add(this.groupBox2);
+            this.tabPageGPU.Controls.Add(this.label6);
+            this.tabPageGPU.Controls.Add(this.comboBoxGPUDevice);
             this.tabPageGPU.Location = new System.Drawing.Point(4, 22);
             this.tabPageGPU.Name = "tabPageGPU";
             this.tabPageGPU.Size = new System.Drawing.Size(768, 360);
@@ -248,6 +259,52 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // comboBoxGPUDevice
+            // 
+            this.comboBoxGPUDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGPUDevice.Enabled = false;
+            this.comboBoxGPUDevice.FormattingEnabled = true;
+            this.comboBoxGPUDevice.Location = new System.Drawing.Point(75, 6);
+            this.comboBoxGPUDevice.Name = "comboBoxGPUDevice";
+            this.comboBoxGPUDevice.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxGPUDevice.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 12);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "GPUデバイス";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(5, 33);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(760, 324);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "GPUデバイス情報";
+            // 
+            // labelValidateSelectOpenCLPlatform
+            // 
+            this.labelValidateSelectOpenCLPlatform.AutoSize = true;
+            this.labelValidateSelectOpenCLPlatform.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelValidateSelectOpenCLPlatform.Location = new System.Drawing.Point(202, 9);
+            this.labelValidateSelectOpenCLPlatform.Name = "labelValidateSelectOpenCLPlatform";
+            this.labelValidateSelectOpenCLPlatform.Size = new System.Drawing.Size(179, 12);
+            this.labelValidateSelectOpenCLPlatform.TabIndex = 3;
+            this.labelValidateSelectOpenCLPlatform.Text = "OpenCLプラットフォームが未選択です";
+            // 
+            // labelNextAnnotationGPUDevice
+            // 
+            this.labelNextAnnotationGPUDevice.AutoSize = true;
+            this.labelNextAnnotationGPUDevice.Location = new System.Drawing.Point(256, 9);
+            this.labelNextAnnotationGPUDevice.Name = "labelNextAnnotationGPUDevice";
+            this.labelNextAnnotationGPUDevice.Size = new System.Drawing.Size(0, 12);
+            this.labelNextAnnotationGPUDevice.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -265,6 +322,8 @@
             this.tabPageOpenCL.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPageGPU.ResumeLayout(false);
+            this.tabPageGPU.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -285,7 +344,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxOpenCLPlatform;
         private System.Windows.Forms.TabPage tabPageFilter;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxPlatformVersion;
@@ -295,6 +354,11 @@
         private System.Windows.Forms.TabPage tabPageGPU;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxPlatformProfile;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBoxGPUDevice;
+        private System.Windows.Forms.Label labelValidateSelectOpenCLPlatform;
+        private System.Windows.Forms.Label labelNextAnnotationGPUDevice;
     }
 }
 
