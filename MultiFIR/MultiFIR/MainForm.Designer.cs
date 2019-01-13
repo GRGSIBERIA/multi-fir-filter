@@ -55,11 +55,24 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelValidateSelectOpenCLPlatform = new System.Windows.Forms.Label();
             this.labelNextAnnotationGPUDevice = new System.Windows.Forms.Label();
+            this.textBoxDeviceName = new System.Windows.Forms.TextBox();
+            this.textBoxDevicePlatform = new System.Windows.Forms.TextBox();
+            this.textBoxDeviceVersion = new System.Windows.Forms.TextBox();
+            this.textBoxDeviceVendor = new System.Windows.Forms.TextBox();
+            this.textBoxDriverVersion = new System.Windows.Forms.TextBox();
+            this.textBoxDeviceType = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageOpenCL.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageGPU.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -280,6 +293,18 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.textBoxDeviceType);
+            this.groupBox2.Controls.Add(this.textBoxDriverVersion);
+            this.groupBox2.Controls.Add(this.textBoxDeviceVendor);
+            this.groupBox2.Controls.Add(this.textBoxDeviceVersion);
+            this.groupBox2.Controls.Add(this.textBoxDevicePlatform);
+            this.groupBox2.Controls.Add(this.textBoxDeviceName);
             this.groupBox2.Location = new System.Drawing.Point(5, 33);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(760, 324);
@@ -305,6 +330,108 @@
             this.labelNextAnnotationGPUDevice.Size = new System.Drawing.Size(0, 12);
             this.labelNextAnnotationGPUDevice.TabIndex = 3;
             // 
+            // textBoxDeviceName
+            // 
+            this.textBoxDeviceName.Enabled = false;
+            this.textBoxDeviceName.Location = new System.Drawing.Point(106, 19);
+            this.textBoxDeviceName.Name = "textBoxDeviceName";
+            this.textBoxDeviceName.Size = new System.Drawing.Size(100, 19);
+            this.textBoxDeviceName.TabIndex = 0;
+            // 
+            // textBoxDevicePlatform
+            // 
+            this.textBoxDevicePlatform.Enabled = false;
+            this.textBoxDevicePlatform.Location = new System.Drawing.Point(106, 45);
+            this.textBoxDevicePlatform.Name = "textBoxDevicePlatform";
+            this.textBoxDevicePlatform.Size = new System.Drawing.Size(100, 19);
+            this.textBoxDevicePlatform.TabIndex = 1;
+            // 
+            // textBoxDeviceVersion
+            // 
+            this.textBoxDeviceVersion.Enabled = false;
+            this.textBoxDeviceVersion.Location = new System.Drawing.Point(106, 71);
+            this.textBoxDeviceVersion.Name = "textBoxDeviceVersion";
+            this.textBoxDeviceVersion.Size = new System.Drawing.Size(100, 19);
+            this.textBoxDeviceVersion.TabIndex = 2;
+            // 
+            // textBoxDeviceVendor
+            // 
+            this.textBoxDeviceVendor.Enabled = false;
+            this.textBoxDeviceVendor.Location = new System.Drawing.Point(106, 97);
+            this.textBoxDeviceVendor.Name = "textBoxDeviceVendor";
+            this.textBoxDeviceVendor.Size = new System.Drawing.Size(100, 19);
+            this.textBoxDeviceVendor.TabIndex = 3;
+            // 
+            // textBoxDriverVersion
+            // 
+            this.textBoxDriverVersion.Enabled = false;
+            this.textBoxDriverVersion.Location = new System.Drawing.Point(106, 123);
+            this.textBoxDriverVersion.Name = "textBoxDriverVersion";
+            this.textBoxDriverVersion.Size = new System.Drawing.Size(100, 19);
+            this.textBoxDriverVersion.TabIndex = 4;
+            // 
+            // textBoxDeviceType
+            // 
+            this.textBoxDeviceType.Enabled = false;
+            this.textBoxDeviceType.Location = new System.Drawing.Point(106, 149);
+            this.textBoxDeviceType.Name = "textBoxDeviceType";
+            this.textBoxDeviceType.Size = new System.Drawing.Size(100, 19);
+            this.textBoxDeviceType.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 12);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "デバイス名";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 12);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "プラットフォーム";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 12);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "バージョン";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 100);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 12);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "ベンダー";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 123);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 12);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "ドライババージョン";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 152);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 12);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "デバイスの種類";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -326,6 +453,8 @@
             this.tabPageGPU.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,6 +488,18 @@
         private System.Windows.Forms.ComboBox comboBoxGPUDevice;
         private System.Windows.Forms.Label labelValidateSelectOpenCLPlatform;
         private System.Windows.Forms.Label labelNextAnnotationGPUDevice;
+        private System.Windows.Forms.TextBox textBoxDevicePlatform;
+        private System.Windows.Forms.TextBox textBoxDeviceName;
+        private System.Windows.Forms.TextBox textBoxDeviceType;
+        private System.Windows.Forms.TextBox textBoxDriverVersion;
+        private System.Windows.Forms.TextBox textBoxDeviceVendor;
+        private System.Windows.Forms.TextBox textBoxDeviceVersion;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
 

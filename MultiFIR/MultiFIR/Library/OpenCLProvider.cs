@@ -201,6 +201,7 @@ namespace MultiFIR.Library
                     Cl.GetDeviceInfo(device, DeviceInfo.CompilerAvailable, out error).ToString()
                     ));
             }
+            DeviceInformations = infos.ToArray();
         }
     }
 }
