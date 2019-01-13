@@ -18,6 +18,10 @@ namespace MultiFIR
         OpenCLProvider opencl;
         ASIOProvider asio;
 
+        private bool setOpenCL = false;
+        private bool setAsio = false;
+        private bool setGPU = false;
+
         public MainForm()
         {
             InitializeComponent();
@@ -109,7 +113,8 @@ namespace MultiFIR
             {
                 comboBoxGPUDevice.Items.Add(device.Name);
             }
-            
+
+            setOpenCL = true;
         }
 
         /// <summary>
@@ -141,6 +146,7 @@ namespace MultiFIR
             SetTextAndReadOnlyEnabled(textBoxMaxWorkItemSize, info.MaxWorkItemSize);
             SetTextAndReadOnlyEnabled(textBoxMaxGroupSize, info.MaxWorkGroupSize);
 
+            setGPU = true;
         }
 
         /// <summary>
@@ -151,6 +157,8 @@ namespace MultiFIR
         private void SelectedASIODriver(object sender, EventArgs e)
         {
             asio = new ASIOProvider(comboBoxASIODriver.Text);
+
+            setAsio = true;
         }
     }
 }
