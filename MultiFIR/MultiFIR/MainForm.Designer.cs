@@ -44,8 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxOpenCLPlatform = new System.Windows.Forms.ComboBox();
             this.tabPageGPU = new System.Windows.Forms.TabPage();
-            this.labelValidateSelectOpenCLPlatform = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.textBoxCompilerAvailable = new System.Windows.Forms.TextBox();
@@ -79,15 +79,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxGPUDevice = new System.Windows.Forms.ComboBox();
             this.tabPageASIO = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBoxASIODriver = new System.Windows.Forms.ComboBox();
             this.tabPageFilter = new System.Windows.Forms.TabPage();
             this.tabPageControl = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.label22 = new System.Windows.Forms.Label();
-            this.comboBoxASIODriver = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageOpenCL.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -239,7 +238,6 @@
             // 
             // tabPageGPU
             // 
-            this.tabPageGPU.Controls.Add(this.labelValidateSelectOpenCLPlatform);
             this.tabPageGPU.Controls.Add(this.groupBox2);
             this.tabPageGPU.Controls.Add(this.label6);
             this.tabPageGPU.Controls.Add(this.comboBoxGPUDevice);
@@ -249,16 +247,6 @@
             this.tabPageGPU.TabIndex = 4;
             this.tabPageGPU.Text = "GPU設定";
             this.tabPageGPU.UseVisualStyleBackColor = true;
-            // 
-            // labelValidateSelectOpenCLPlatform
-            // 
-            this.labelValidateSelectOpenCLPlatform.AutoSize = true;
-            this.labelValidateSelectOpenCLPlatform.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelValidateSelectOpenCLPlatform.Location = new System.Drawing.Point(259, 9);
-            this.labelValidateSelectOpenCLPlatform.Name = "labelValidateSelectOpenCLPlatform";
-            this.labelValidateSelectOpenCLPlatform.Size = new System.Drawing.Size(179, 12);
-            this.labelValidateSelectOpenCLPlatform.TabIndex = 3;
-            this.labelValidateSelectOpenCLPlatform.Text = "OpenCLプラットフォームが未選択です";
             // 
             // groupBox2
             // 
@@ -299,6 +287,15 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "GPU デバイス情報";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(354, 202);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(225, 12);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "環境によって文字化け/非表示のことがあります";
             // 
             // label21
             // 
@@ -587,6 +584,25 @@
             this.tabPageASIO.Text = "ASIO設定";
             this.tabPageASIO.UseVisualStyleBackColor = true;
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(71, 12);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "ASIO ドライバ";
+            // 
+            // comboBoxASIODriver
+            // 
+            this.comboBoxASIODriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxASIODriver.FormattingEnabled = true;
+            this.comboBoxASIODriver.Location = new System.Drawing.Point(83, 6);
+            this.comboBoxASIODriver.Name = "comboBoxASIODriver";
+            this.comboBoxASIODriver.Size = new System.Drawing.Size(178, 20);
+            this.comboBoxASIODriver.TabIndex = 0;
+            this.comboBoxASIODriver.TextChanged += new System.EventHandler(this.SelectedASIODriver);
+            // 
             // tabPageFilter
             // 
             this.tabPageFilter.Location = new System.Drawing.Point(4, 22);
@@ -628,34 +644,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(354, 202);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(225, 12);
-            this.label22.TabIndex = 30;
-            this.label22.Text = "環境によって文字化け/非表示のことがあります";
-            // 
-            // comboBoxASIODriver
-            // 
-            this.comboBoxASIODriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxASIODriver.FormattingEnabled = true;
-            this.comboBoxASIODriver.Location = new System.Drawing.Point(83, 6);
-            this.comboBoxASIODriver.Name = "comboBoxASIODriver";
-            this.comboBoxASIODriver.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxASIODriver.TabIndex = 0;
-            this.comboBoxASIODriver.TextChanged += new System.EventHandler(this.SelectedASIODriver);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 9);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(71, 12);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "ASIO ドライバ";
             // 
             // MainForm
             // 
@@ -713,7 +701,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxGPUDevice;
-        private System.Windows.Forms.Label labelValidateSelectOpenCLPlatform;
         private System.Windows.Forms.Label labelNextAnnotationGPUDevice;
         private System.Windows.Forms.TextBox textBoxDevicePlatform;
         private System.Windows.Forms.TextBox textBoxDeviceName;

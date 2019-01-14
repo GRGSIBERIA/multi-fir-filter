@@ -104,9 +104,7 @@ namespace MultiFIR
             SetTextAndReadOnlyEnabled(textBoxPlatformProfile, info.Profile);
 
             // GPU情報を選択させる
-            labelValidateSelectOpenCLPlatform.Text = "";
             comboBoxGPUDevice.Enabled = true;
-            labelNextAnnotationGPUDevice.Text = "GPU情報タブで演算するGPUデバイスを選択してください";
 
             opencl.IncludeDevices();
             foreach (var device in opencl.DeviceInformations)
