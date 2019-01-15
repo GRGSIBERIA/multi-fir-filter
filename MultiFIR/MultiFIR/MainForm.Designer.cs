@@ -95,6 +95,7 @@
             this.textBoxNumOutputChannels = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.labelErrorASIO = new System.Windows.Forms.Label();
+            this.ヘルプHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPageOpenCL.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -635,7 +636,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ファイルFToolStripMenuItem});
+            this.ファイルFToolStripMenuItem,
+            this.ヘルプHToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 26);
@@ -730,6 +732,12 @@
             this.labelErrorASIO.Name = "labelErrorASIO";
             this.labelErrorASIO.Size = new System.Drawing.Size(0, 12);
             this.labelErrorASIO.TabIndex = 3;
+            // 
+            // ヘルプHToolStripMenuItem
+            // 
+            this.ヘルプHToolStripMenuItem.Name = "ヘルプHToolStripMenuItem";
+            this.ヘルプHToolStripMenuItem.Size = new System.Drawing.Size(79, 22);
+            this.ヘルプHToolStripMenuItem.Text = "ヘルプ (&H)";
             // 
             // MainForm
             // 
@@ -831,6 +839,7 @@
         private System.Windows.Forms.TextBox textBoxASIODriverName;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label labelErrorASIO;
+        private System.Windows.Forms.ToolStripMenuItem ヘルプHToolStripMenuItem;
     }
 }
 

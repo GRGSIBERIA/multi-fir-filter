@@ -55,15 +55,33 @@ namespace MultiFIR.Library
                 Enabled = false;
             }
         }
-    }
 
-    public class WaveProvider : IWaveProvider
-    {
-        public WaveFormat WaveFormat => throw new NotImplementedException();
-
-        public int Read(byte[] buffer, int offset, int count)
+        private bool WasConnected()
         {
-            throw new NotImplementedException();
+            if (!Enabled)
+            {
+                MessageBox.Show("ASIOドライバが選択されておりません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        public void Play()
+        {
+            if (WasConnected()) return;
+            asio.Play();
+        }
+
+        public void Stop()
+        {
+            if (WasConnected()) return;
+            asio.Stop();
+        }
+
+        public void Pause()
+        {
+            if (WasConnected()) return;
+            asio.Pause();
         }
     }
 }
