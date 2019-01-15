@@ -155,8 +155,19 @@ namespace MultiFIR
         private void SelectedASIODriver(object sender, EventArgs e)
         {
             asio = new ASIOProvider(comboBoxASIODriver.Text);
+            if (asio.Enabled)
+            {
+                SetTextAndReadOnlyEnabled(textBoxASIODriverName, asio.Name);
+                SetTextAndReadOnlyEnabled(textBoxNumInputChannels, asio.Inputs.Length.ToString());
+                SetTextAndReadOnlyEnabled(textBoxNumOutputChannels, asio.Outputs.Length.ToString());
 
-            setAsio = true;
+                setAsio = true;
+                labelErrorASIO.Text = "";
+            }
+            else
+            {
+                labelErrorASIO.Text = "無効なASIOドライバです";
+            }
         }
     }
 }

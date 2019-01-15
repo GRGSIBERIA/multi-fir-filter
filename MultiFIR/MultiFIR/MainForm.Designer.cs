@@ -87,6 +87,14 @@
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBoxASIODriverName = new System.Windows.Forms.TextBox();
+            this.textBoxNumInputChannels = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBoxNumOutputChannels = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.labelErrorASIO = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageOpenCL.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,6 +102,7 @@
             this.groupBox2.SuspendLayout();
             this.tabPageASIO.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -574,6 +583,8 @@
             // 
             // tabPageASIO
             // 
+            this.tabPageASIO.Controls.Add(this.labelErrorASIO);
+            this.tabPageASIO.Controls.Add(this.groupBox3);
             this.tabPageASIO.Controls.Add(this.label23);
             this.tabPageASIO.Controls.Add(this.comboBoxASIODriver);
             this.tabPageASIO.Location = new System.Drawing.Point(4, 22);
@@ -645,6 +656,81 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.textBoxNumOutputChannels);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.textBoxNumInputChannels);
+            this.groupBox3.Controls.Add(this.textBoxASIODriverName);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Location = new System.Drawing.Point(8, 32);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(754, 322);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ASIOドライバ情報";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(6, 21);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(79, 12);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "ASIOドライバ名";
+            // 
+            // textBoxASIODriverName
+            // 
+            this.textBoxASIODriverName.Enabled = false;
+            this.textBoxASIODriverName.Location = new System.Drawing.Point(123, 18);
+            this.textBoxASIODriverName.Name = "textBoxASIODriverName";
+            this.textBoxASIODriverName.Size = new System.Drawing.Size(147, 19);
+            this.textBoxASIODriverName.TabIndex = 1;
+            // 
+            // textBoxNumInputChannels
+            // 
+            this.textBoxNumInputChannels.Enabled = false;
+            this.textBoxNumInputChannels.Location = new System.Drawing.Point(123, 44);
+            this.textBoxNumInputChannels.Name = "textBoxNumInputChannels";
+            this.textBoxNumInputChannels.Size = new System.Drawing.Size(147, 19);
+            this.textBoxNumInputChannels.TabIndex = 2;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 47);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(87, 12);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "入力チャンネル数";
+            // 
+            // textBoxNumOutputChannels
+            // 
+            this.textBoxNumOutputChannels.Enabled = false;
+            this.textBoxNumOutputChannels.Location = new System.Drawing.Point(123, 70);
+            this.textBoxNumOutputChannels.Name = "textBoxNumOutputChannels";
+            this.textBoxNumOutputChannels.Size = new System.Drawing.Size(147, 19);
+            this.textBoxNumOutputChannels.TabIndex = 4;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 73);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(87, 12);
+            this.label26.TabIndex = 5;
+            this.label26.Text = "出力チャンネル数";
+            // 
+            // labelErrorASIO
+            // 
+            this.labelErrorASIO.AutoSize = true;
+            this.labelErrorASIO.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelErrorASIO.Location = new System.Drawing.Point(267, 9);
+            this.labelErrorASIO.Name = "labelErrorASIO";
+            this.labelErrorASIO.Size = new System.Drawing.Size(0, 12);
+            this.labelErrorASIO.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -670,6 +756,8 @@
             this.tabPageASIO.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -735,6 +823,14 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox comboBoxASIODriver;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBoxNumOutputChannels;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBoxNumInputChannels;
+        private System.Windows.Forms.TextBox textBoxASIODriverName;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label labelErrorASIO;
     }
 }
 
