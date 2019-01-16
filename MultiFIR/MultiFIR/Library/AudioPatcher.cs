@@ -9,17 +9,27 @@ using NAudio.Wave.Asio;
 
 namespace MultiFIR.Library
 {
-    public class AudioPatcher : ISampleProvider
+    public class FIRProvider : IWaveProvider
     {
         public WaveFormat WaveFormat => throw new NotImplementedException();
 
+        public int Read(byte[] buffer, int offset, int count)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class AudioPatcher : ISampleProvider
+    {
         private readonly int outputChannels;
         private readonly int inputChannels;
         private float[] mixBuffer;
 
+        public WaveFormat WaveFormat => throw new NotImplementedException();
+
         public AudioPatcher(int sampleRate, int inputChannels, int outputChannels)
         {
-            WaveFormat = WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, outputChannels);
+            
         }
 
         public void ProcessBuffer(IntPtr[] inBuffers, IntPtr[] outBuffers, int sampleCount, AsioSampleType sampleType)
